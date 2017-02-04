@@ -19,6 +19,7 @@ package com.unithon.android.fay.demo;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -129,6 +130,7 @@ public class CameraActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         mCameraView = (CameraView) findViewById(R.id.camera);
         if (mCameraView != null) {
@@ -528,7 +530,18 @@ public class CameraActivity extends AppCompatActivity implements
                 .post(requestBody)
                 .build();
 
-            client.newCall(request).execute();
+        Response response = client.newCall(request).execute();
+
+        if (response != null && response.isSuccessful()) {
+            if (response.body().toString().equals("1")) {
+                // TOOD: TO MAIN ACTIVITY
+            }
+
+        } else {
+            Toast.makeText(this, "인증 실패하였습니다", Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 

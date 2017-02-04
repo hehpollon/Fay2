@@ -16,6 +16,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.cameraview.demo.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+
+    public static final String EXTRA_LOGIN_TO_CAMERA ="LOGIN_TO_CAMERA";
     ImageView ivLoginLogo;
     Button btLoginLogin,btLoginSignup;
 
@@ -52,6 +54,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.bt_login_login :
                 Toast.makeText(getApplicationContext(),"login",Toast.LENGTH_SHORT).show();
+                Intent loginIntent = new Intent(this, CameraActivity.class);
+                loginIntent.putExtra(EXTRA_LOGIN_TO_CAMERA, 0);
+                startActivity(loginIntent);
                 break;
 
 
