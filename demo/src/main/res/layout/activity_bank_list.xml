@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bank_list"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:background="@color/bank_background"
+    tools:context="com.unithon.android.fay.demo.Signup.BankListActivity">
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/iv_bank_list_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cross_white"/>
+    <TextView
+        style="@style/BankTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:text="은행 선택" />
+
+    <GridView
+        android:id="@+id/gv_bank_list_bank"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_marginTop="90dp"
+        android:columnWidth="72dp"
+        android:gravity="center"
+        android:horizontalSpacing="13dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="13dp" />
+
+    <TextView
+        style="@style/BankTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"
+        android:text="증권사" />
+
+    <GridView
+        android:id="@+id/gv_bank_list_fund"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="460dp"
+        android:columnWidth="72dp"
+        android:gravity="center"
+        android:verticalSpacing="13dp"
+        android:horizontalSpacing="13dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth" />
+</RelativeLayout>

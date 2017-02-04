@@ -34,6 +34,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //메모리 증가.
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "2g"
+    }
 }
 
 dependencies {
@@ -52,4 +57,7 @@ dependencies {
 
 //    compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    testCompile 'junit:junit:4.12'
+    compile files('lib/aws-java-sdk-1.11.86.jar')
 }

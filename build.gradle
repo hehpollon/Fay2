@@ -28,4 +28,5 @@ ext {
     minSdkVersion = 21
     targetSdkVersion = 25
     supportLibraryVersion = '25.0.1'
+
 }

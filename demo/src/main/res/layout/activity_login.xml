@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.unithon.android.fay.demo.LoginActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="455dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/iv_login_logo"/>
+    <Button
+        android:id="@+id/bt_login_login"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="425dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        style="@style/LoginbuttonText"
+        android:text="로그인"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/login_btn_background"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="483dp"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="86dp"
+            android:layout_height="0.5dp"
+            android:background="@color/greyish"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아직 회원이 아니신가요?"
+            android:layout_centerHorizontal="true"
+            style="@style/Confirmdialogdismiss"/>
+
+        <View
+            android:layout_width="86dp"
+            android:layout_height="0.5dp"
+            android:background="@color/greyish"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/bt_login_signup"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginRight="15dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        style="@style/AppbarText"
+        android:text="회원가입"
+        android:background="@drawable/signup_btn_background"/>
+
+
+</RelativeLayout>

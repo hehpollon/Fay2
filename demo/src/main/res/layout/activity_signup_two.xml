@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_signup_two"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.unithon.android.fay.demo.Signup.SignupActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        app:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/introtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="회원가입"
+                style="@style/AppbarText"
+                android:textStyle="bold"
+                android:textColor="@color/indigo_blue"/>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="92dp"
+            android:background="@color/greyish"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/upper_step_3"/>
+
+
+        <TextView
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="5dp"
+            android:text="은행"
+            android:layout_width="wrap_content"
+            style="@style/SignupTextStyle"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="220dp"
+            android:layout_height="43dp">
+            <TextView
+                android:background="@drawable/signup_edittext_background"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="선택"
+                style="@style/Spinnertext"
+                android:id="@+id/tv_signup_two_bank"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/choice_tri"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"/>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="300dp"
+            android:text="계좌번호( ' - '없이)"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            style="@style/SignupTextStyle"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:background="@drawable/signup_edittext_background"
+            android:layout_width="match_parent"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="320dp"
+            android:layout_height="43dp"
+            android:id="@+id/et_signup_two_bank_num"/>
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bt_signup_two_next"
+            style="@style/SignupButtonText"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="다음으로"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/login_btn_background"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
