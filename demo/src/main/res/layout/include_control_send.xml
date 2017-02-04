@@ -67,16 +67,12 @@
         android:layout_gravity="bottom"
         android:background="#f7f6fc"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin">
+        android:layout_height="56dp">
 
         <TextView
             android:text="계좌번호로 보내기"
             android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:background="#371eb7"
+            android:textColor="#371eb7"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
