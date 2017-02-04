@@ -17,4 +17,8 @@
     <color name="accent">#4CAF50</color>
     <color name="primaryText">#212121</color>
     <color name="secondaryText">#727272</color>
+
+    <!-- App colors -->
+    <color name="colorPrimary">#371eb7</color>
+    <color name="colorAccent">#fecf35</color>
 </resources>
