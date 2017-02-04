@@ -1,32 +1,11 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.unithon.android.fay.demo;
 
 import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
@@ -38,32 +17,24 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.format.Formatter;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.cameraview.AspectRatio;
 import com.google.android.cameraview.CameraView;
 import com.google.android.cameraview.demo.R;
-import com.unithon.android.fay.demo.Fintech.HomeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Set;
 
 import okhttp3.Call;
@@ -75,20 +46,17 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-
 /**
  * This demo app saves the taken picture to a constant file.
  * $ adb pull /sdcard/Android/data/com.google.android.cameraview.demo/files/Pictures/picture.jpg
  */
-public class CameraActivity extends AppCompatActivity implements
+public class CameraActivity2 extends AppCompatActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback,
         AspectRatioFragment.Listener {
 
-    private Button mNextButton;
-
     private static boolean initialLaunch = true;
 
-    private static final String TAG = "CameraActivity";
+    private static final String TAG = "CameraActivity2";
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 
@@ -150,16 +118,6 @@ public class CameraActivity extends AppCompatActivity implements
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
         }
-
-        mNextButton = (Button) findViewById(R.id.button_camera_next);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CameraActivity.this, HomeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     @Override
@@ -203,7 +161,7 @@ public class CameraActivity extends AppCompatActivity implements
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-            @NonNull int[] grantResults) {
+                                           @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA_PERMISSION:
                 if (permissions.length != 1 || grantResults.length != 1) {
@@ -327,10 +285,10 @@ public class CameraActivity extends AppCompatActivity implements
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                        };
+                        }
+                        ;
 
                         throwMultipart(file);
-
 
 
                         // Send request
@@ -371,7 +329,7 @@ public class CameraActivity extends AppCompatActivity implements
         private static final String ARG_NOT_GRANTED_MESSAGE = "not_granted_message";
 
         public static ConfirmationDialogFragment newInstance(@StringRes int message,
-                String[] permissions, int requestCode, @StringRes int notGrantedMessage) {
+                                                             String[] permissions, int requestCode, @StringRes int notGrantedMessage) {
             ConfirmationDialogFragment fragment = new ConfirmationDialogFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_MESSAGE, message);
@@ -493,7 +451,6 @@ public class CameraActivity extends AppCompatActivity implements
 //        String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
 
-
         try {
             object.put("phoneNum", "01050555810");
             object.put("name", "조한상");
@@ -547,13 +504,14 @@ public class CameraActivity extends AppCompatActivity implements
         Response response = client.newCall(request).execute();
 
         if (response != null && response.isSuccessful()) {
-//            int returnValue = Integer.parseInt(response.body().toString());
-            String body = response.body().toString();
-//            Log.d("CameraActivity2", String.valueOf(returnValue));
+            int returnValue = Integer.valueOf(response.body().toString());
+            Log.d("CameraActivity2", String.valueOf(returnValue));
+
+
+        } else {
+            Toast.makeText(this, "인증 실패하였습니다", Toast.LENGTH_SHORT).show();
         }
 
 
-
     }
-
 }
