@@ -14,6 +14,26 @@
 <resources>
 
     <!-- Base application theme. -->
+    <style name="SignupTextStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+    <style name="AppbarText">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/indigo_blue</item>
+    </style>
+    <style name="Spinnertext">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/pale_purple</item>
+    </style>
+
+    <style name="SignupButtonText">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
     <style name="Theme.Demo" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
@@ -22,5 +42,57 @@
         <item name="android:textColorPrimary">@color/primaryText</item>
         <item name="android:textColorSecondary">@color/secondaryText</item>
     </style>
-
+    <style name="Banktext">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+    <style name="BankTitleText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="LoginbuttonText">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="Confirmdialogdismiss">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/greyish</item>
+    </style>
+    <style name="BankItemText">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="Guidetext">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:lineSpacingExtra">7sp</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+    <style name="Signuptexttype">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/indigo_blue</item>
+    </style>
+    <style name="Guidetext2">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.06</item>
+        <item name="android:lineSpacingExtra">7sp</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+    <style name="Accounttext">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">@color/greyish</item>
+    </style>
+    <style name="Accounttext2">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.06</item>
+        <item name="android:textColor">@color/greyish</item>
+    </style>
 </resources>

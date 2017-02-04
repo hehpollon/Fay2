@@ -15,6 +15,17 @@
     <color name="primary">#3F51B5</color>
     <color name="primaryDark">#303F9F</color>
     <color name="accent">#4CAF50</color>
+    <color name="white">#ffffff</color>
     <color name="primaryText">#212121</color>
     <color name="secondaryText">#727272</color>
+    <color name="sun_yellow">#fecf35</color>
+    <color name="bank_background">#170861</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="greyish">#b0b0b0</color>
+    <color name="pale_grey">#f7f6fc</color>
+    <color name="indigo_blue">#371eb7</color>
+    <color name="pale_purple">#a99fdb</color>
+    <color name="brownish_grey">#6b6b6b</color>
+    <color name="light_blue_grey">#d8d3f0</color>
+
 </resources>

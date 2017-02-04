@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Copyright (C) 2016 The Android Open Source Project
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -11,27 +10,30 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<manifest package="com.google.android.cameraview.demo"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.cameraview.demo">
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"/>
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Demo">
-
-        <activity android:name="com.unithon.android.fay.demo.MainActivity">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name="com.unithon.android.fay.demo.LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name="com.unithon.android.fay.demo.Signup.SignupActivity" />
+        <activity android:name="com.unithon.android.fay.demo.MainActivity" />
+        <activity android:name="com.unithon.android.fay.demo.Signup.SignupTwoActivity" />
+        <activity android:name="com.unithon.android.fay.demo.Signup.BankListActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Copyright (C) 2016 The Android Open Source Project
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,4 +21,23 @@
     <string name="flash_auto">Flash auto</string>
     <string name="flash_off">Flash off</string>
     <string name="flash_on">Flash on</string>
+    <string-array name="NetworkList">
+        <item>선택</item>
+        <item>SKT</item>
+        <item>KT</item>
+        <item>LG</item>
+    </string-array>
+    <string-array name="backList">
+        <item>선택</item>
+        <item>KB국민은행</item>
+        <item>신한은행</item>
+        <item>우리은행</item>
+        <item>KEB하나은행</item>
+        <item>대구은행</item>
+        <item>부산은행</item>
+        <item>경남은행</item>
+        <item>광주은행</item>
+        <item>전북은행</item>
+        <item>제주은행</item>
+    </string-array>
 </resources>
