@@ -60,6 +60,8 @@ public class CameraActivity extends AppCompatActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback,
         AspectRatioFragment.Listener {
 
+    private static boolean initialLaunch = true;
+
     private static final String TAG = "CameraActivity";
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
@@ -239,7 +241,11 @@ public class CameraActivity extends AppCompatActivity implements
         @Override
         public void onCameraOpened(CameraView cameraView) {
             Log.d(TAG, "onCameraOpened");
-            mCameraView.setFacing(CameraView.FACING_FRONT);
+
+            if (initialLaunch) {
+                mCameraView.setFacing(CameraView.FACING_FRONT);
+                initialLaunch = false;
+            }
         }
 
         @Override
