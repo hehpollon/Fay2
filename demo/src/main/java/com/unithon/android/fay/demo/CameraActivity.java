@@ -20,6 +20,9 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,6 +37,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.Formatter;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,22 +50,40 @@ import com.google.android.cameraview.AspectRatio;
 import com.google.android.cameraview.CameraView;
 import com.google.android.cameraview.demo.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Set;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 /**
  * This demo app saves the taken picture to a constant file.
  * $ adb pull /sdcard/Android/data/com.google.android.cameraview.demo/files/Pictures/picture.jpg
  */
-public class MainActivity extends AppCompatActivity implements
+public class CameraActivity extends AppCompatActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback,
         AspectRatioFragment.Listener {
 
-    private static final String TAG = "MainActivity";
+    private static boolean initialLaunch = true;
+
+    private static final String TAG = "CameraActivity";
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 
@@ -239,7 +262,11 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         public void onCameraOpened(CameraView cameraView) {
             Log.d(TAG, "onCameraOpened");
-            mCameraView.setFacing(CameraView.FACING_FRONT);
+
+            if (initialLaunch) {
+                mCameraView.setFacing(CameraView.FACING_FRONT);
+                initialLaunch = false;
+            }
         }
 
         @Override
@@ -252,16 +279,57 @@ public class MainActivity extends AppCompatActivity implements
             Log.d(TAG, "onPictureTaken " + data.length);
             Toast.makeText(cameraView.getContext(), R.string.picture_taken, Toast.LENGTH_SHORT)
                     .show();
+
+            sendSignUpRequest(data);
+
             getBackgroundHandler().post(new Runnable() {
                 @Override
                 public void run() {
-                    File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                    File file = new File("/storage/emulated/0/Download",
                             "picture.jpg");
+
+                    if (file.exists()) {
+                        file.delete();
+                    }
+
                     OutputStream os = null;
                     try {
-                        os = new FileOutputStream(file);
+                        os = new FileOutputStream(file, false);
                         os.write(data);
                         os.close();
+
+                        Log.v("adsf", file.getPath());
+
+                        Boolean bool = file.createNewFile();
+
+                        Log.d("asdf", String.valueOf(bool));
+                        Log.d("asdf", file.getAbsolutePath());
+
+                        sendSignUpRequest(data);
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        };
+
+                        throwMultipart(file);
+
+
+
+                        // Send request
+//                        sendGenericPostRequest();
+//                        sendSignUpRequest(data);
+
+//                        InputStream is = null;
+//                        try {
+//                            is = new FileInputStream(file);
+//                            sendSignUpRequest(is.read());
+//                        }
+
+                        Log.d(this.getClass().getSimpleName(), String.valueOf(data));
+//                        sendSignUpRequest(data);
+
                     } catch (IOException e) {
                         Log.w(TAG, "Cannot write to " + file, e);
                     } finally {
@@ -327,6 +395,140 @@ public class MainActivity extends AppCompatActivity implements
                             })
                     .create();
         }
+
+    }
+
+    public void sendGenericPostRequest() {
+
+        final MediaType JSON
+                = MediaType.parse("application/json; charset=utf-8");
+
+        OkHttpClient client = new OkHttpClient();
+
+        JSONObject object = new JSONObject();
+        final String randomMessage = "hi";
+
+        try {
+            object.put("message_type", "MESG");
+            object.put("user_id", "louis");
+            object.put("message", randomMessage);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String url = "http://192.168.43.232:3000/signup";
+
+
+        RequestBody body = RequestBody.create(JSON, object.toString());
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.v(this.getClass().getSimpleName(), response.body().string());
+            }
+        });
+    }
+
+
+    public void sendSignUpRequest(byte[] bytes) {
+        final MediaType JSON
+                = MediaType.parse("application/json; charset=utf-8");
+
+//        OkHttpClient client = new OkHttpClient();
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .retryOnConnectionFailure(true)
+                .build();
+
+        JSONObject object = new JSONObject();
+
+//        String encoded = Base64.encodeToString(bytes, Base64.NO_WRAP);
+
+//        // convert from bitmap to byte array
+//        public byte[] getBytesFromBitmap(Bitmap bitmap) {
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            bitmap.compress(CompressFormat.JPEG, 70, stream);
+//            return stream.toByteArray();
+//        }
+//
+//// get the base 64 string
+//        String imgString = Base64.encodeToString(getBytesFromBitmap(someImg),
+//                Base64.NO_WRAP);
+//
+//
+//        Log.d("asdf", encoded);
+
+
+        // byte -> bitmap -> byte -> string64
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+//        byte[] byteArray = byteArrayOutputStream.toByteArray();
+//        String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+
+
+        try {
+            object.put("phoneNum", "01050555810");
+            object.put("name", "조한상");
+            object.put("idNum", "9209241");
+            object.put("accountNum", "11054541234");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String url = "http://192.168.43.232:3000/signup";
+
+
+        RequestBody body = RequestBody.create(JSON, object.toString());
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.v(this.getClass().getSimpleName(), response.body().string());
+            }
+        });
+    }
+
+
+    public void throwMultipart(File file) throws IOException {
+        final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/jpeg");
+
+        final OkHttpClient client = new OkHttpClient();
+
+        // Use the imgur image upload API as documented at https://api.imgur.com/endpoints/image
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("image", "picture.jpg",
+                        RequestBody.create(MediaType.parse("image/jpeg"), file))
+                .build();
+
+        Request request = new Request.Builder()
+                .url("http://192.168.43.232:3000/upload")
+                .post(requestBody)
+                .build();
+
+            client.newCall(request).execute();
 
     }
 
