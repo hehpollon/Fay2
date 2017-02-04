@@ -56,11 +56,11 @@ import java.util.Set;
  * This demo app saves the taken picture to a constant file.
  * $ adb pull /sdcard/Android/data/com.google.android.cameraview.demo/files/Pictures/picture.jpg
  */
-public class MainActivity extends AppCompatActivity implements
+public class CameraActivity extends AppCompatActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback,
         AspectRatioFragment.Listener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "CameraActivity";
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 

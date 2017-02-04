@@ -17,7 +17,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.unithon.android.fay.demo.MainActivity">
+    tools:context="com.unithon.android.fay.demo.CameraActivity">
 
     <include
         layout="@layout/include_camera"
