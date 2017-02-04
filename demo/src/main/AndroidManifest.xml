@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.unithon.android.fay.demo.Signup.SignupActivity" />
-        <activity android:name="com.unithon.android.fay.demo.MainActivity" />
+        <activity android:name="com.unithon.android.fay.demo.CameraActivity" />
         <activity android:name="com.unithon.android.fay.demo.Signup.SignupTwoActivity" />
         <activity android:name="com.unithon.android.fay.demo.Signup.BankListActivity"></activity>
     </application>
