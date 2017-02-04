@@ -19,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.cameraview.demo.R;
-import com.unithon.android.fay.demo.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -59,5 +59,4 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'com.github.bumptech.glide:glide:3.6.0'
     testCompile 'junit:junit:4.12'
-    compile files('lib/aws-java-sdk-1.11.86.jar')
 }

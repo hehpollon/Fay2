@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.cameraview.demo.R;
-import com.unithon.android.fay.demo.MainActivity;
+import com.unithon.android.fay.demo.CameraActivity;
 
 public class SignupTwoActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int CAMERA_TYPE_SINGUP = 1004;
@@ -128,7 +128,7 @@ public class SignupTwoActivity extends AppCompatActivity implements View.OnClick
                 intent.putExtra("userRrnNum",getIntent().getStringExtra("userRrnNum"));
                 intent.putExtra("userPhone",getIntent().getStringExtra("userPhone"));
                 intent.putExtra("userNetwork",getIntent().getStringExtra("userNetwork"));
-                intent.setClass(SignupTwoActivity.this, MainActivity.class);
+                intent.setClass(SignupTwoActivity.this, CameraActivity.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(),getIntent().getStringExtra("userName") + "/"
                         +getIntent().getStringExtra("userRrnNum") +" /"
