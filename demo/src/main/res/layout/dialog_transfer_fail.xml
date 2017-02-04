@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="312dp"
+    android:layout_height="312dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="96.5dp"
+        android:layout_height="98.5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:src="@drawable/transfer_fail"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Confirmdialogname"
+        android:textStyle="bold"
+        android:text="송금에 실패하였습니다!"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="86dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Trasnferconfirmquestion"
+        android:layout_centerHorizontal="true"
+        android:text="다시 한번 더 시도해주세요"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="53dp"/>
+
+</RelativeLayout>

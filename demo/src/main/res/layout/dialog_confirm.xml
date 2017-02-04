@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="312dp"
+    android:layout_height="464dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff">
+
+    <ImageView
+        android:paddingRight="7.5dp"
+        android:paddingTop="7.5dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/cross"
+        android:layout_gravity="right"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/iv_confirmdialog_exit"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"
+        android:text="이 사람이 맞나요?"
+        android:textStyle="bold"
+        style="@style/Confirmdialogtitle"/>
+    
+    <RelativeLayout
+        android:layout_marginTop="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:background="@color/pale_grey">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="74dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_confirmdialog_name"
+            android:text="김태리"
+            android:textStyle="bold"
+            style="@style/Confirmdialogname"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="105dp"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Confirmdialogbank"
+                android:text="신한은행"
+                android:id="@+id/tv_confirmdialog_bank"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                style="@style/AccountText"
+                android:text="110-123-123456"
+                android:id="@+id/tv_confirmdialog_account"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        app:civ_border_color="@color/indigo_blue"
+        app:civ_border_width="2dp"
+        app:civ_fill_color="@color/pale_purple"
+        android:src="@drawable/default_img"
+        android:id="@+id/civ_confirmdialog_profile"/>
+
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:text="예, 송금을 진행합니다"
+        android:textStyle="bold"
+        style="@style/Confirmdialogaccept"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
+        android:background="@color/indigo_blue"
+        android:id="@+id/tv_confirmdialog_accept"
+        android:layout_marginBottom="98.5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98.5dp"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            
+            <View
+                android:layout_width="77dp"
+                android:layout_height="0.5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:layout_centerVertical="true"
+                android:background="@color/greyish"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이 사람이 아니에요!"
+                style="@style/Confirmdialogdismiss"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
+
+            <View
+                android:layout_width="77dp"
+                android:layout_height="0.5dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:background="@color/greyish"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:background="@drawable/confirm_border"
+            android:text="다른 사람 찾기"
+            android:textStyle="bold"
+            android:gravity="center"
+            style="@style/Confirmdialogother"
+            android:layout_gravity="center"
+            android:id="@+id/tv_confirmdialog_other"
+            android:layout_marginBottom="16dp"/>
+
+
+    </LinearLayout>
+</FrameLayout>

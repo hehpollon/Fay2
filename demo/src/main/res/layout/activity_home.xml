@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="34.5dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/fay_logo"
+            />
+
+        <ImageView
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/setting"
+            android:id="@+id/iv_home_setting"/>
+
+        <ImageView
+            android:layout_width="193dp"
+            android:layout_height="152.5dp"
+            android:layout_marginTop="84dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/main_img"
+            android:id="@+id/iv_home_camera"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="17.5dp"
+            android:layout_height="6.5dp"
+            android:layout_marginTop="178dp"
+            android:layout_marginRight="26.5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/group_2"/>
+
+        <TextView
+            android:layout_width="135.5dp"
+            android:layout_height="46dp"
+            android:layout_centerHorizontal="true"
+            android:text="얼굴을 인식하여\n송금을 진행해보세요!"
+            android:layout_marginTop="250dp"
+            style="@style/GuideText"
+            />
+
+    </RelativeLayout>
+    
+
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:layout_alignParentBottom="true">
+        
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/pale_grey"
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="김태리"
+                    android:textSize="20sp"
+                    android:textColor="@color/indigo_blue"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:layout_marginTop="38.5dp"
+                    android:layout_marginBottom="34.5dp"
+                    android:id="@+id/tv_home_name"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="11dp"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="신한은행"
+                        style="@style/Banktext"
+                        android:id="@+id/tv_home_bank"/>
+
+                    <TextView
+                        android:layout_marginLeft="28dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="110-123-123456"
+                        style="@style/AccountText"
+                        android:id="@+id/tv_home_account"/>
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:background="@color/indigo_blue"/>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/RecentlyTitle"
+                    android:text="최근 거래 내역"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="11dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/RecentlyMore"
+                    android:text="모두 지우기"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/tv_home_recentlyclear"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/rl_home_recently"></android.support.v7.widget.RecyclerView>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--<ImageView-->
+            <!--android:layout_width="72dp"-->
+            <!--android:layout_height="72dp"-->
+            <!--android:background="#000000"-->
+            <!--android:layout_gravity="center_horizontal"/>-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/indigo_blue"
+            app:civ_fill_color="@color/pale_purple"
+            android:src="@drawable/default_img"
+            android:id="@+id/civ_home_profile"/>
+
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="312dp"
+    android:layout_height="464dp"
+    android:background="#ffffff">
+
+    <ImageView
+        android:paddingRight="7.5dp"
+        android:paddingTop="7.5dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/cross"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/iv_confirmothersdialog_exit"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        style="@style/Confirmdialogtitle"
+        android:text="그러면 이 사람들인가요?"
+        android:textStyle="bold"/>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="112dp"
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
+        android:background="@drawable/confirm_others_border"
+        android:id="@+id/rv_confirmothersdialog"></android.support.v7.widget.RecyclerView>
+    
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:background="@drawable/confirm_border"
+        style="@style/Confirmothersrecap"
+        android:text="사진 재등록하기"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/tv_confirmothersdialog_recapture"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp">
+
+        <View
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8.5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/greyish"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Confirmothersdismiss"
+            android:text="이 사람들도 아니에요"/>
+
+        <View
+            android:layout_marginLeft="8.5dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/greyish"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
