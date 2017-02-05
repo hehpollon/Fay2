@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.cameraview.demo.R;
+import com.unithon.android.fay.demo.CameraActivity3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //사진 촬영 페이지로 이동.
+                Intent intent = new Intent(HomeActivity.this, CameraActivity3.class);
+//                startActivity(intent);
+                startActivityForResult(intent, 2);
             }
         });
         tv_home_account = (TextView) findViewById(R.id.tv_home_account);
@@ -228,6 +232,64 @@ public class HomeActivity extends AppCompatActivity {
                 rl_home_recently.setLayoutManager(llm);
                 rl_home_recently.setAdapter(recentlyAdapter);
             }
+        } else if(requestCode==2){
+            if(resultCode==Activity.RESULT_OK){
+                final Dialog dialog = new Dialog(HomeActivity.this);
+                dialog.setContentView(R.layout.dialog_confirm);
+                final TextView tv_confirmdialog_accept = (TextView) dialog.findViewById(R.id.tv_confirmdialog_accept);
+                final TextView tv_confirmdialog_other = (TextView) dialog.findViewById(R.id.tv_confirmdialog_other);
+                final TextView tv_confirmdialog_name = (TextView) dialog.findViewById(R.id.tv_confirmdialog_name);
+                final TextView tv_confirmdialog_bank = (TextView) dialog.findViewById(R.id.tv_confirmdialog_bank);
+                final TextView tv_confirmdialog_account = (TextView) dialog.findViewById(R.id.tv_confirmdialog_account);
+                final ImageView iv_confirmdialog_exit = (ImageView) dialog.findViewById(R.id.iv_confirmdialog_exit);
+                iv_confirmdialog_exit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                tv_confirmdialog_accept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(HomeActivity.this, TransferConfirmActivity.class);
+                        intent.putExtra("name", tv_confirmdialog_name.getText().toString());
+                        intent.putExtra("bank", tv_confirmdialog_bank.getText().toString());
+                        intent.putExtra("account", tv_confirmdialog_account.getText().toString());
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+                tv_confirmdialog_other.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        final Dialog dialog2 = new Dialog(HomeActivity.this);
+                        dialog2.setContentView(R.layout.dialog_confirm_others);
+
+                        names2 = new ArrayList<String>();
+                        names2.add("김선일");
+                        names2.add("손흥민");
+                        names2.add("박지성");
+                        RecyclerView rv_confirmothersdialog = (RecyclerView) dialog2.findViewById(R.id.rv_confirmothersdialog);
+                        OthersAdapter othersAdapter = new OthersAdapter(names2);
+                        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+                        rv_confirmothersdialog.setLayoutManager(llm);
+                        rv_confirmothersdialog.setAdapter(othersAdapter);
+                        TextView tv_confirmothersdialog_recapture = (TextView) dialog2.findViewById(R.id.tv_confirmothersdialog_recapture);
+                        tv_confirmothersdialog_recapture.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog2.dismiss();
+                                Intent intent = new Intent(HomeActivity.this, CameraActivity3.class);
+                                startActivityForResult(intent, 2);
+                            }
+                        });
+
+                        dialog2.show();
+                    }
+                });
+                dialog.show();
+            }
         }
     }
 
@@ -290,9 +352,11 @@ public class HomeActivity extends AppCompatActivity {
         public class MyViewHolder extends RecyclerView.ViewHolder{
             public TextView tv_confirmothersdialogadapter_name;
             public View view_confirmothersdialogadapter_bottomline;
+            public RelativeLayout rl_confirmothersdialogadapter;
 
             public MyViewHolder(View view){
                 super(view);
+                rl_confirmothersdialogadapter = (RelativeLayout) view.findViewById(R.id.rl_confirmothersdialogadapter);
                 tv_confirmothersdialogadapter_name = (TextView) view.findViewById(R.id.tv_confirmothersdialogadapter_name);
                 view_confirmothersdialogadapter_bottomline = (View) view.findViewById(R.id.view_confirmothersdialogadapter_bottomline);
             }
@@ -314,6 +378,12 @@ public class HomeActivity extends AppCompatActivity {
             if(position==getItemCount()-1){
                 holder.view_confirmothersdialogadapter_bottomline.setVisibility(View.GONE);
             }
+//            holder.rl_confirmothersdialogadapter.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
 
         }
 

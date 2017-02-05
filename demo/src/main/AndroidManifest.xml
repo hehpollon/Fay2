@@ -41,6 +41,9 @@
         <activity android:name="com.unithon.android.fay.demo.Fintech.HomeActivity">
 
         </activity>
+
+        <activity android:name="com.unithon.android.fay.demo.CameraActivity2"></activity>
+        <activity android:name="com.unithon.android.fay.demo.CameraActivity3"></activity>
         <activity android:name="com.unithon.android.fay.demo.Fintech.TransferConfirmActivity"></activity>
     </application>
 
